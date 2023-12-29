@@ -156,6 +156,6 @@ $ telnet localhost <socket_port>
 
 ---
 ## Contact
-E-mail: koras@korasrobotics.com
+E-mail: software@korasrobotics.com
 
 Homepage: http://korasrobotics.com
