@@ -16,8 +16,8 @@ DatcCtrl::DatcCtrl() {
 DatcCtrl::~DatcCtrl() {
 }
 
-bool DatcCtrl::modbusInit(const char *port_name, uint16_t slave_address) {
-    return mbc_.modbusInit(port_name, slave_address);
+bool DatcCtrl::modbusInit(const char *port_name, uint16_t slave_address, int baudrate) {
+    return mbc_.modbusInit(port_name, slave_address, baudrate);
 }
 
 bool DatcCtrl::modbusRelease() {

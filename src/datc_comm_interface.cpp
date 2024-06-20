@@ -24,8 +24,8 @@ DatcCommInterface::~DatcCommInterface() {
     modbusRelease();
 }
 
-bool DatcCommInterface::init(const char *port_name, uint16_t slave_address) {
-    if (!modbusInit(port_name, slave_address)) {
+bool DatcCommInterface::init(const char *port_name, uint16_t slave_address, int baudrate) {
+    if (!modbusInit(port_name, slave_address, baudrate)) {
         return false;
     }
 

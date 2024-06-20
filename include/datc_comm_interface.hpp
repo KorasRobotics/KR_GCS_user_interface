@@ -33,7 +33,7 @@ Q_SIGNALS:
     void rosShutdown();
 
 public:
-    bool init(const char *port_name, uint16_t slave_address);
+    bool init(const char *port_name, uint16_t slave_address, int baudrate);
     void initTcp(const string addr, uint16_t socket_port);
     void releaseTcp();
 

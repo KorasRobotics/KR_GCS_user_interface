@@ -77,7 +77,7 @@ public:
     DatcCtrl();
     ~DatcCtrl();
 
-    bool modbusInit(const char *port_name, uint16_t slave_address);
+    bool modbusInit(const char *port_name, uint16_t slave_address, int baudrate);
     bool modbusRelease();
     bool modbusSlaveChange(uint16_t slave_addr);
 

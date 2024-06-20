@@ -70,8 +70,7 @@ MainWindow::MainWindow(int argc, char **argv, bool &success, QWidget *parent) : 
 
     modbus_widget_->ui_.comboBox_baudrate->setEnabled(true);
     modbus_widget_->ui_.comboBox_baudrate->addItems({"9600", "19200", "38400", "57600", "115200"});
-    modbus_widget_->ui_.comboBox_baudrate->setCurrentIndex(2);
-    modbus_widget_->ui_.comboBox_baudrate->setDisabled(true);
+    modbus_widget_->ui_.comboBox_baudrate->setCurrentIndex(4);
 
     // Check box setting
     QString checkbox_qstr = "QCheckBox::indicator {width:25px; height: 25px;}";
@@ -325,7 +324,11 @@ void MainWindow::initModbus() {
     const char* port = modbus_widget_->ui_.comboBox_serial_port->currentText().toStdString().c_str();
     uint16_t slave_addr = modbus_widget_->ui_.spinBox_slave_addr->value();
 
-    if (datc_interface_->init(port, slave_addr)) {
+    // 왜인지 이렇게 우회해야만 release mode에서 정상적으로 동작함
+    auto baudrate_qstr = modbus_widget_->ui_.comboBox_baudrate->currentText();
+    auto baudrate = baudrate_qstr.toInt();
+
+    if (datc_interface_->init(port, slave_addr, baudrate)) {
         // Successed
     } else {
         ui_->lineEdit_monitor_mode->setText("Invalid port or permission.");
