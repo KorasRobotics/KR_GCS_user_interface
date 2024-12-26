@@ -40,8 +40,8 @@ enum class WidgetSeq {
     MODBUS_WIDGET         = 0,
     DATC_CTRL_WIDGET      = 1,
     ADVANCED_CTRL_WIDGET  = 2,
-    TCP_WIDGET            = 3,
-    IMPEDANCE_CTRL_WIDGET = 4,
+    IMPEDANCE_CTRL_WIDGET = 3,
+    TCP_WIDGET            = 4,
 };
 
 class MainWindow : public QMainWindow {

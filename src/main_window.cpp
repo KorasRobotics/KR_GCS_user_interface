@@ -31,13 +31,13 @@ MainWindow::MainWindow(int argc, char **argv, bool &success, QWidget *parent) : 
     // Stacked widget
     ui_->stackedWidget->addWidget(modbus_widget_);
     ui_->stackedWidget->addWidget(datc_ctrl_widget_);
-    ui_->stackedWidget->addWidget(advanced_ctrl_widget_);    
+    ui_->stackedWidget->addWidget(advanced_ctrl_widget_);
+    ui_->stackedWidget->addWidget(impedance_ctrl_widget_);
 
 #ifndef RCLCPP__RCLCPP_HPP_
     ui_->stackedWidget->addWidget(tcp_widget_);
 #endif
 
-    ui_->stackedWidget->addWidget(impedance_ctrl_widget_);
     ui_->stackedWidget->setCurrentIndex((int) WidgetSeq::MODBUS_WIDGET);
 
     // GUI setting
