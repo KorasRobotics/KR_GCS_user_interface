@@ -14,46 +14,123 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#DevTabForm{
+   <string notr="true">#ImpedanceCtrlForm{
 	background-color:#FFFFFF;
 }
 
-#pushButton_custom_cmd{
+#pushButton_cmd_initialize{
+	background-color:#555555;
+	color:#FFFFFF;
+	padding:10px;
+	border-top-left-radius:20px;
+	border-top-right-radius:20px;
+}
+
+#pushButton_cmd_enable{
 	background-color:#555555;
 	color:#FFFFFF;
 	padding:10px;
 }
 
-#pushButton_reset_position{
+#pushButton_cmd_disable{
 	background-color:#555555;
 	color:#FFFFFF;
 	padding:10px;
 }
 
-#pushButton_set_elec_angle{
+#pushButton_cmd_grp_stop{
 	background-color:#555555;
 	color:#FFFFFF;
 	padding:10px;
 }
 
-#pushButton_set_p_gain{
+#pushButton_cmd_grp_open{
 	background-color:#555555;
 	color:#FFFFFF;
 	padding:10px;
 }
 
-#pushButton_set_v_gain{
+#pushButton_cmd_grp_close{
 	background-color:#555555;
 	color:#FFFFFF;
 	padding:10px;
 }
 
-#pushButton_set_c_gain{
+#pushButton_cmd_grp_vacuum_on{
 	background-color:#555555;
 	color:#FFFFFF;
 	padding:10px;
+	border-bottom-left-radius:20px;
 }
-</string>
+
+#pushButton_cmd_grp_vacuum_off{
+	background-color:#555555;
+	color:#FFFFFF;
+	padding:10px;
+	border-bottom-right-radius:20px;
+}
+
+#pushButton_set_position{
+	background-color:#555555;
+	color:#FFFFFF;
+}
+
+#pushButton_cmd_impedance_on{
+	background-color:#555555;
+	color:#FFFFFF;
+}
+
+#pushButton_cmd_impedance_off{
+	background-color:#555555;
+	color:#FFFFFF;
+}
+
+#pushButton_set_impedance_params{
+	background-color:#555555;
+	color:#FFFFFF;
+}
+
+/* slider */
+QSlider::groove:vertical {
+	background: #FF0000;
+	position: absolute;
+	left: 4px; right: 7px;
+}
+
+QSlider::handle:vertical {
+	height: 10px;
+	background: #000000;
+	margin: 0 -7px; /* expand outside the groove */
+}
+
+QSlider::add-page:vertical {
+	background: #AAAAAA;
+}
+
+QSlider::sub-page:vertical {
+	background: #EEEEEE;
+}
+
+QSlider::groove:horizontal {
+	background: #FF0000;
+	position: absolute;
+	top: 4px; bottom: 7px;
+	left:7px; right:7px;
+}
+
+QSlider::handle:horizontal {
+	width: 10px;
+	background: #000000;
+	margin: -7 -7px; /* expand outside the groove */
+}
+
+QSlider::add-page:horizontal {
+	background: #EEEEEE;
+}
+
+QSlider::sub-page:horizontal {
+	background: #AAAAAA;
+}</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
@@ -121,6 +198,7 @@
           <font>
            <family>Noto Sans KR</family>
            <pointsize>16</pointsize>
+           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -128,7 +206,7 @@
           <string>Warning:</string>
          </property>
          <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
@@ -202,7 +280,7 @@ Please note that we do not take responsibility for any issues or consequences
 arising from the use of the features in this tab.</string>
          </property>
          <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
@@ -220,7 +298,7 @@ arising from the use of the features in this tab.</string>
         <number>5</number>
        </property>
        <property name="orientation">
-        <enum>Qt::Orientation::Horizontal</enum>
+        <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
@@ -246,6 +324,7 @@ arising from the use of the features in this tab.</string>
             <font>
              <family>Noto Sans KR</family>
              <pointsize>16</pointsize>
+             <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
@@ -253,7 +332,7 @@ arising from the use of the features in this tab.</string>
             <string>Custom cmd</string>
            </property>
            <property name="alignment">
-            <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
            </property>
           </widget>
          </item>
@@ -277,6 +356,7 @@ arising from the use of the features in this tab.</string>
               <font>
                <family>Noto Sans KR</family>
                <pointsize>12</pointsize>
+               <weight>50</weight>
                <bold>false</bold>
               </font>
              </property>
@@ -284,14 +364,14 @@ arising from the use of the features in this tab.</string>
               <string>Cmd</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
            <item row="0" column="1">
             <widget class="QSpinBox" name="spinBox_custom_cmd">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -312,11 +392,12 @@ arising from the use of the features in this tab.</string>
               <font>
                <family>Noto Sans KR</family>
                <pointsize>12</pointsize>
+               <weight>50</weight>
                <bold>false</bold>
               </font>
              </property>
              <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
              <property name="maximum">
               <number>1000000000</number>
@@ -341,6 +422,7 @@ arising from the use of the features in this tab.</string>
               <font>
                <family>Noto Sans KR</family>
                <pointsize>12</pointsize>
+               <weight>50</weight>
                <bold>false</bold>
               </font>
              </property>
@@ -348,14 +430,14 @@ arising from the use of the features in this tab.</string>
               <string>Value 1</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
            <item row="1" column="1">
             <widget class="QSpinBox" name="spinBox_custom_cmd_value_1">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -376,11 +458,12 @@ arising from the use of the features in this tab.</string>
               <font>
                <family>Noto Sans KR</family>
                <pointsize>12</pointsize>
+               <weight>50</weight>
                <bold>false</bold>
               </font>
              </property>
              <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
              <property name="maximum">
               <number>1000000000</number>
@@ -405,6 +488,7 @@ arising from the use of the features in this tab.</string>
               <font>
                <family>Noto Sans KR</family>
                <pointsize>12</pointsize>
+               <weight>50</weight>
                <bold>false</bold>
               </font>
              </property>
@@ -412,14 +496,14 @@ arising from the use of the features in this tab.</string>
               <string>Value 2</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
            <item row="2" column="1">
             <widget class="QSpinBox" name="spinBox_custom_cmd_value_2">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -440,11 +524,12 @@ arising from the use of the features in this tab.</string>
               <font>
                <family>Noto Sans KR</family>
                <pointsize>12</pointsize>
+               <weight>50</weight>
                <bold>false</bold>
               </font>
              </property>
              <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
              <property name="maximum">
               <number>1000000000</number>
@@ -469,6 +554,7 @@ arising from the use of the features in this tab.</string>
               <font>
                <family>Noto Sans KR</family>
                <pointsize>12</pointsize>
+               <weight>50</weight>
                <bold>false</bold>
               </font>
              </property>
@@ -476,14 +562,14 @@ arising from the use of the features in this tab.</string>
               <string>Value 3</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
            <item row="3" column="1">
             <widget class="QSpinBox" name="spinBox_custom_cmd_value_3">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -504,11 +590,12 @@ arising from the use of the features in this tab.</string>
               <font>
                <family>Noto Sans KR</family>
                <pointsize>12</pointsize>
+               <weight>50</weight>
                <bold>false</bold>
               </font>
              </property>
              <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
              <property name="maximum">
               <number>1000000000</number>
@@ -965,6 +1052,7 @@ arising from the use of the features in this tab.</string>
             <font>
              <family>Noto Sans KR</family>
              <pointsize>14</pointsize>
+             <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
@@ -989,6 +1077,7 @@ arising from the use of the features in this tab.</string>
          <property name="font">
           <font>
            <family>Noto Sans KR</family>
+           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -999,7 +1088,7 @@ arising from the use of the features in this tab.</string>
           <number>3</number>
          </property>
          <property name="orientation">
-          <enum>Qt::Orientation::Vertical</enum>
+          <enum>Qt::Vertical</enum>
          </property>
         </widget>
        </item>
@@ -1025,6 +1114,7 @@ arising from the use of the features in this tab.</string>
               <font>
                <family>Noto Sans KR</family>
                <pointsize>16</pointsize>
+               <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
@@ -1032,7 +1122,7 @@ arising from the use of the features in this tab.</string>
               <string>Gain tuning</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
@@ -1062,6 +1152,7 @@ arising from the use of the features in this tab.</string>
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>12</pointsize>
+                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
@@ -1069,7 +1160,7 @@ arising from the use of the features in this tab.</string>
                 <string>P_PID gain</string>
                </property>
                <property name="alignment">
-                <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                </property>
               </widget>
              </item>
@@ -1091,11 +1182,12 @@ arising from the use of the features in this tab.</string>
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>12</pointsize>
+                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
                <property name="alignment">
-                <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
                <property name="maximum">
                 <number>1000000000</number>
@@ -1123,11 +1215,12 @@ arising from the use of the features in this tab.</string>
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>12</pointsize>
+                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
                <property name="alignment">
-                <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
                <property name="maximum">
                 <number>1000000000</number>
@@ -1155,11 +1248,12 @@ arising from the use of the features in this tab.</string>
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>12</pointsize>
+                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
                <property name="alignment">
-                <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
                <property name="maximum">
                 <number>1000000000</number>
@@ -1629,6 +1723,7 @@ arising from the use of the features in this tab.</string>
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>14</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -1664,6 +1759,7 @@ arising from the use of the features in this tab.</string>
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>12</pointsize>
+                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
@@ -1671,7 +1767,7 @@ arising from the use of the features in this tab.</string>
                 <string>V_PI gain</string>
                </property>
                <property name="alignment">
-                <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                </property>
               </widget>
              </item>
@@ -1693,11 +1789,12 @@ arising from the use of the features in this tab.</string>
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>12</pointsize>
+                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
                <property name="alignment">
-                <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
                <property name="maximum">
                 <number>1000000000</number>
@@ -1725,11 +1822,12 @@ arising from the use of the features in this tab.</string>
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>12</pointsize>
+                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
                <property name="alignment">
-                <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
                <property name="maximum">
                 <number>1000000000</number>
@@ -1742,10 +1840,10 @@ arising from the use of the features in this tab.</string>
              <item row="1" column="3">
               <spacer name="horizontalSpacer_5">
                <property name="orientation">
-                <enum>Qt::Orientation::Horizontal</enum>
+                <enum>Qt::Horizontal</enum>
                </property>
                <property name="sizeType">
-                <enum>QSizePolicy::Policy::Fixed</enum>
+                <enum>QSizePolicy::Fixed</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
@@ -2215,6 +2313,7 @@ arising from the use of the features in this tab.</string>
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>14</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -2250,6 +2349,7 @@ arising from the use of the features in this tab.</string>
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>12</pointsize>
+                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
@@ -2257,7 +2357,7 @@ arising from the use of the features in this tab.</string>
                 <string>C_PI gain</string>
                </property>
                <property name="alignment">
-                <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                </property>
               </widget>
              </item>
@@ -2279,11 +2379,12 @@ arising from the use of the features in this tab.</string>
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>12</pointsize>
+                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
                <property name="alignment">
-                <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
                <property name="maximum">
                 <number>1000000000</number>
@@ -2311,11 +2412,12 @@ arising from the use of the features in this tab.</string>
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>12</pointsize>
+                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
                <property name="alignment">
-                <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
                <property name="maximum">
                 <number>1000000000</number>
@@ -2328,10 +2430,10 @@ arising from the use of the features in this tab.</string>
              <item row="2" column="3">
               <spacer name="horizontalSpacer_6">
                <property name="orientation">
-                <enum>Qt::Orientation::Horizontal</enum>
+                <enum>Qt::Horizontal</enum>
                </property>
                <property name="sizeType">
-                <enum>QSizePolicy::Policy::Fixed</enum>
+                <enum>QSizePolicy::Fixed</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
@@ -2801,6 +2903,7 @@ arising from the use of the features in this tab.</string>
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>14</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -2828,7 +2931,7 @@ arising from the use of the features in this tab.</string>
             <number>5</number>
            </property>
            <property name="orientation">
-            <enum>Qt::Orientation::Horizontal</enum>
+            <enum>Qt::Horizontal</enum>
            </property>
           </widget>
          </item>
@@ -3039,6 +3142,7 @@ arising from the use of the features in this tab.</string>
               <font>
                <family>Noto Sans KR</family>
                <pointsize>14</pointsize>
+               <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
@@ -3255,6 +3359,7 @@ arising from the use of the features in this tab.</string>
               <font>
                <family>Noto Sans KR</family>
                <pointsize>14</pointsize>
+               <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
@@ -3277,7 +3382,7 @@ arising from the use of the features in this tab.</string>
    <item row="0" column="1">
     <spacer name="horizontalSpacer_4">
      <property name="orientation">
-      <enum>Qt::Orientation::Horizontal</enum>
+      <enum>Qt::Horizontal</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
@@ -3290,7 +3395,7 @@ arising from the use of the features in this tab.</string>
    <item row="1" column="0">
     <spacer name="verticalSpacer_7">
      <property name="orientation">
-      <enum>Qt::Orientation::Vertical</enum>
+      <enum>Qt::Vertical</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
