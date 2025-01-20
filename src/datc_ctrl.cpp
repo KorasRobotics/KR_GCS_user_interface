@@ -274,6 +274,11 @@ bool DatcCtrl::command(DATC_COMMAND cmd, uint16_t value_1, uint16_t value_2) {
     }
 }
 
+// Dev ui related functions
+bool DatcCtrl::customCmd(uint16_t cmd, uint16_t value_1, uint16_t value_2, uint16_t value_3) {
+    return SEND_CMD_VECTOR(vector<uint16_t> ({cmd, value_1, value_2, value_3}));
+}
+
 // Impedance related functions
 bool DatcCtrl::impedanceOn() {
     return command(DATC_COMMAND::IMPEDANCE_ON);

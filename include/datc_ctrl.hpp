@@ -118,6 +118,9 @@ public:
     bool impedanceOff();
     bool setImpedanceParams(int16_t slave_num, int16_t stiffness_level);
 
+    // Dev ui related functions
+    bool customCmd(uint16_t cmd, uint16_t value_1 = 0, uint16_t value_2 = 0, uint16_t value_3 = 0);
+
 protected:
     bool checkDurationRange(string error_prefix, uint16_t &duration);
     bool command(DATC_COMMAND cmd, uint16_t value_1 = 0, uint16_t value_2 = 0);

@@ -22,6 +22,7 @@ MainWindow::MainWindow(int argc, char **argv, bool &success, QWidget *parent) : 
     tcp_widget_            = new TcpWidget(this);
     advanced_ctrl_widget_  = new AdvancedCtrlWidget(this);
     impedance_ctrl_widget_ = new ImpedanceCtrlWidget(this);
+    dev_tab_widget_        = new DevTabWidget(this);
 
     ui_->setupUi(this);
 
@@ -33,6 +34,7 @@ MainWindow::MainWindow(int argc, char **argv, bool &success, QWidget *parent) : 
     ui_->stackedWidget->addWidget(datc_ctrl_widget_);
     ui_->stackedWidget->addWidget(advanced_ctrl_widget_);
     ui_->stackedWidget->addWidget(impedance_ctrl_widget_);
+    ui_->stackedWidget->addWidget(dev_tab_widget_);
 
 #ifndef RCLCPP__RCLCPP_HPP_
     ui_->stackedWidget->addWidget(tcp_widget_);
@@ -143,6 +145,14 @@ MainWindow::MainWindow(int argc, char **argv, bool &success, QWidget *parent) : 
     QObject::connect(impedance_ctrl_widget_->ui_.pushButton_cmd_grp_vacuum_on , SIGNAL(clicked()), this, SLOT(datcVacuumGrpOn()));
     QObject::connect(impedance_ctrl_widget_->ui_.pushButton_cmd_grp_vacuum_off, SIGNAL(clicked()), this, SLOT(datcVacuumGrpOff()));
 
+    // Dev ui related btn
+    QObject::connect(dev_tab_widget_->ui_.pushButton_set_p_gain    , SIGNAL(clicked()), this, SLOT(dev_setGainP()));
+    QObject::connect(dev_tab_widget_->ui_.pushButton_set_v_gain    , SIGNAL(clicked()), this, SLOT(dev_setGainV()));
+    QObject::connect(dev_tab_widget_->ui_.pushButton_set_c_gain    , SIGNAL(clicked()), this, SLOT(dev_setGainC()));
+    QObject::connect(dev_tab_widget_->ui_.pushButton_custom_cmd    , SIGNAL(clicked()), this, SLOT(dev_customCmd()));
+    QObject::connect(dev_tab_widget_->ui_.pushButton_reset_position, SIGNAL(clicked()), this, SLOT(dev_resetPos()));
+    QObject::connect(dev_tab_widget_->ui_.pushButton_set_elec_angle, SIGNAL(clicked()), this, SLOT(dev_setElecAngle()));
+
 #ifndef RCLCPP__RCLCPP_HPP_
     // TCP socket commiunication related btn
     QObject::connect(tcp_widget_->ui_.pushButton_tcp_start, SIGNAL(clicked()), this, SLOT(startTcpComm()));
@@ -157,6 +167,8 @@ MainWindow::MainWindow(int argc, char **argv, bool &success, QWidget *parent) : 
 
     datc_interface_->start();
     success = true;
+
+    dev_tab_accessibility_ = false;
 }
 
 MainWindow::~MainWindow() {
@@ -412,6 +424,51 @@ void MainWindow::setSlaveAddr() {
     }
 }
 
+// Dev ui related functions
+void MainWindow::dev_setGainP() {
+    int p_p = dev_tab_widget_->ui_.spinBox_p_p->value();
+    int p_i = dev_tab_widget_->ui_.spinBox_p_i->value();
+    int p_d = dev_tab_widget_->ui_.spinBox_p_d->value();
+
+    // Set pos pid gain cmd: 211
+    datc_interface_->customCmd(211, p_p, p_i, p_d);
+}
+
+void MainWindow::dev_setGainV() {
+    int v_p = dev_tab_widget_->ui_.spinBox_v_p->value();
+    int v_i = dev_tab_widget_->ui_.spinBox_v_i->value();
+
+    // Set pos pid gain cmd: 214
+    datc_interface_->customCmd(214, v_p, v_i);
+}
+
+void MainWindow::dev_setGainC() {
+    int c_p = dev_tab_widget_->ui_.spinBox_c_p->value();
+    int c_i = dev_tab_widget_->ui_.spinBox_c_i->value();
+
+    // Set pos pid gain cmd: 215
+    datc_interface_->customCmd(215, c_p, c_i);
+}
+
+void MainWindow::dev_customCmd() {
+    int addr    = dev_tab_widget_->ui_.spinBox_custom_cmd->value();
+    int value_1 = dev_tab_widget_->ui_.spinBox_custom_cmd_value_1->value();
+    int value_2 = dev_tab_widget_->ui_.spinBox_custom_cmd_value_2->value();
+    int value_3 = dev_tab_widget_->ui_.spinBox_custom_cmd_value_3->value();
+
+    datc_interface_->customCmd(addr, value_1, value_2, value_3);
+}
+
+void MainWindow::dev_resetPos() {
+    // reset position order cmd: 8
+    datc_interface_->customCmd(8);
+}
+
+void MainWindow::dev_setElecAngle() {
+    // set electrical angle order cmd: 50
+    datc_interface_->customCmd(50);
+}
+
 #ifndef RCLCPP__RCLCPP_HPP_
 // TCP comm. related functions
 void MainWindow::startTcpComm() {
@@ -488,6 +545,27 @@ void MainWindow::on_pushButton_modbus_refresh_clicked() {
     if (!ser_port_str_vec.empty()) {
         modbus_widget_->ui_.comboBox_serial_port->setCurrentIndex(ser_port_str_vec.size() - 1);
     }
+}
+
+void MainWindow::on_pushButton_logo_clicked() {
+    static uint cnt = 0;
+
+    if (dev_tab_accessibility_) {
+        if (++cnt >= 3) {
+            ui_->stackedWidget->setCurrentIndex((int) WidgetSeq::DEV_TAB_WIDGET);
+
+            ui_->pushButton_select_modbus    ->setStyleSheet(menu_btn_inactive_str_);
+            ui_->pushButton_select_datc_ctrl ->setStyleSheet(menu_btn_inactive_str_);
+            ui_->pushButton_select_adv       ->setStyleSheet(menu_btn_inactive_str_);
+            ui_->pushButton_select_tcp       ->setStyleSheet(menu_btn_inactive_str_);
+            ui_->pushButton_select_imped_ctrl->setStyleSheet(menu_btn_inactive_str_);
+        }
+    }
+}
+
+void MainWindow::on_pushButton_hidden_clicked() {
+    static uint cnt = 0;
+    dev_tab_accessibility_ = (++cnt >= 5) ? true : false;
 }
 
 std::vector<std::string> MainWindow::getSerialPortLists() {

@@ -41,7 +41,8 @@ enum class WidgetSeq {
     DATC_CTRL_WIDGET      = 1,
     ADVANCED_CTRL_WIDGET  = 2,
     IMPEDANCE_CTRL_WIDGET = 3,
-    TCP_WIDGET            = 4,
+    DEV_TAB_WIDGET        = 4,
+    TCP_WIDGET            = 5,
 };
 
 class MainWindow : public QMainWindow {
@@ -85,6 +86,14 @@ public Q_SLOTS:
     void changeSlaveAddress();
     void setSlaveAddr();
 
+    // Dev ui related
+    void dev_setGainP();
+    void dev_setGainV();
+    void dev_setGainC();
+    void dev_customCmd();
+    void dev_resetPos();
+    void dev_setElecAngle();
+
 #ifndef RCLCPP__RCLCPP_HPP_
     // TCP comm. related functions
     void startTcpComm();
@@ -99,6 +108,10 @@ public Q_SLOTS:
     void on_pushButton_select_imped_ctrl_clicked();
     void on_pushButton_modbus_refresh_clicked();
 
+    // Btn for dev tab
+    void on_pushButton_logo_clicked();
+    void on_pushButton_hidden_clicked();
+
     // Serial port find function
     std::vector<std::string> getSerialPortLists();
 
@@ -110,12 +123,15 @@ private:
     TcpWidget           *tcp_widget_;
     AdvancedCtrlWidget  *advanced_ctrl_widget_;
     ImpedanceCtrlWidget *impedance_ctrl_widget_;
+    DevTabWidget        *dev_tab_widget_;
 
     QString menu_btn_active_str_, menu_btn_inactive_str_;
     QString btn_active_str_, btn_inactive_str_;
 
     QTimer *timer_;
     DatcCommInterface *datc_interface_;
+
+    bool dev_tab_accessibility_;
 };
 
 }
