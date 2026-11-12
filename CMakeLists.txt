@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(kr_gcs_user_interface VERSION 1.0 LANGUAGES CXX)
+project(kr_gcs_user_interface VERSION 2.0.0 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -8,6 +8,18 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(CMAKE_AUTOUIC_SEARCH_PATHS ${PROJECT_SOURCE_DIR}/ui)
+
+set(UI_FILES
+    ${PROJECT_SOURCE_DIR}/ui/main_window.ui
+    ${PROJECT_SOURCE_DIR}/ui/modbus_form.ui
+    ${PROJECT_SOURCE_DIR}/ui/datc_control_form.ui
+    ${PROJECT_SOURCE_DIR}/ui/tcp_form.ui
+    ${PROJECT_SOURCE_DIR}/ui/advanced_control.ui
+    ${PROJECT_SOURCE_DIR}/ui/impedance_control_form.ui
+    ${PROJECT_SOURCE_DIR}/ui/dev_tab_form.ui
+)
 
 if(WIN32)
     include_directories("C:/boost_1_74_0")
@@ -60,6 +72,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(${PROJECT_NAME}
         MANUAL_FINALIZATION
         ${${PROJECT_NAME}_SRCS}
+        ${UI_FILES}
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET datc_user_interface APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -68,6 +81,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 else()
     add_executable(${PROJECT_NAME}
         ${${PROJECT_NAME}_SRCS}
+        ${UI_FILES}
     )
 endif()
 

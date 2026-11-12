@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>914</width>
-    <height>468</height>
+    <width>1060</width>
+    <height>480</height>
    </rect>
   </property>
   <property name="font">
@@ -184,7 +184,6 @@ QLineEdit{
             <font>
              <family>Noto Sans KR</family>
              <pointsize>24</pointsize>
-             <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
@@ -236,7 +235,6 @@ QLineEdit{
             <font>
              <family>Noto Sans KR</family>
              <pointsize>16</pointsize>
-             <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
@@ -255,7 +253,7 @@ QLineEdit{
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>106</height>
+        <height>140</height>
        </size>
       </property>
       <property name="font">
@@ -319,7 +317,6 @@ QLineEdit{
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>16</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -357,13 +354,41 @@ QLineEdit{
            </item>
            <item>
             <widget class="QLineEdit" name="lineEdit_monitor_mode">
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>24</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <family>Noto Sans KR</family>
-               <pointsize>13</pointsize>
-               <weight>75</weight>
+               <pointsize>9</pointsize>
                <bold>true</bold>
               </font>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit_monitor_warn">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Noto Sans KR</family>
+               <pointsize>9</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color:#B00000;</string>
              </property>
              <property name="readOnly">
               <bool>true</bool>
@@ -437,7 +462,6 @@ QLineEdit{
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>12</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -464,7 +488,6 @@ QLineEdit{
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>12</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -525,7 +548,6 @@ QLineEdit{
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>12</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -552,7 +574,76 @@ QLineEdit{
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>12</pointsize>
-                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_grip_force">
+               <property name="palette">
+                <palette>
+                 <active>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </active>
+                 <inactive>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </inactive>
+                 <disabled/>
+                </palette>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Noto Sans KR</family>
+                 <pointsize>12</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Grip Force</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="lineEdit_monitor_grip_force">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Noto Sans KR</family>
+                 <pointsize>12</pointsize>
                  <bold>true</bold>
                 </font>
                </property>
@@ -629,7 +720,6 @@ QLineEdit{
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>10</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -659,9 +749,402 @@ QLineEdit{
                 <font>
                  <family>Noto Sans KR</family>
                  <pointsize>12</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="Line" name="line_gripper">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QGridLayout" name="gridLayout_gripper">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <property name="horizontalSpacing">
+              <number>4</number>
+             </property>
+             <property name="verticalSpacing">
+              <number>2</number>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_gripper_id">
+               <property name="palette">
+                <palette>
+                 <active>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </active>
+                 <inactive>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </inactive>
+                 <disabled/>
+                </palette>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Noto Sans KR</family>
+                 <pointsize>10</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Gripper ID</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="lineEdit_gripper_id">
+               <property name="minimumSize">
+                <size>
+                 <width>120</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>120</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Noto Sans KR</family>
+                 <pointsize>10</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>N/A</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_gripper_stroke">
+               <property name="palette">
+                <palette>
+                 <active>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </active>
+                 <inactive>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </inactive>
+                 <disabled/>
+                </palette>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Noto Sans KR</family>
+                 <pointsize>10</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Stroke</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="lineEdit_gripper_stroke">
+               <property name="minimumSize">
+                <size>
+                 <width>120</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>120</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Noto Sans KR</family>
+                 <pointsize>10</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>- mm</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_gripper_force">
+               <property name="palette">
+                <palette>
+                 <active>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </active>
+                 <inactive>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </inactive>
+                 <disabled/>
+                </palette>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Noto Sans KR</family>
+                 <pointsize>10</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Force</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="lineEdit_gripper_force">
+               <property name="minimumSize">
+                <size>
+                 <width>120</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>120</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Noto Sans KR</family>
+                 <pointsize>10</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>- N</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_gripper_payload">
+               <property name="palette">
+                <palette>
+                 <active>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </active>
+                 <inactive>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </inactive>
+                 <disabled/>
+                </palette>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Noto Sans KR</family>
+                 <pointsize>10</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Payload</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLineEdit" name="lineEdit_gripper_payload">
+               <property name="minimumSize">
+                <size>
+                 <width>120</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>120</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Noto Sans KR</family>
+                 <pointsize>10</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>- kg</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_gripper_connect">
+               <property name="palette">
+                <palette>
+                 <active>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </active>
+                 <inactive>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </inactive>
+                 <disabled/>
+                </palette>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Noto Sans KR</family>
+                 <pointsize>10</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Connection</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLineEdit" name="lineEdit_gripper_connect">
+               <property name="minimumSize">
+                <size>
+                 <width>120</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>120</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Noto Sans KR</family>
+                 <pointsize>10</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>- </string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -794,6 +1277,15 @@ QLineEdit{
                  </color>
                 </brush>
                </colorrole>
+               <colorrole role="Highlight">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>31</red>
+                  <green>155</green>
+                  <blue>93</blue>
+                 </color>
+                </brush>
+               </colorrole>
               </active>
               <inactive>
                <colorrole role="Button">
@@ -820,6 +1312,15 @@ QLineEdit{
                   <red>255</red>
                   <green>255</green>
                   <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Highlight">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>31</red>
+                  <green>155</green>
+                  <blue>93</blue>
                  </color>
                 </brush>
                </colorrole>
@@ -852,6 +1353,15 @@ QLineEdit{
                  </color>
                 </brush>
                </colorrole>
+               <colorrole role="Highlight">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>31</red>
+                  <green>155</green>
+                  <blue>93</blue>
+                 </color>
+                </brush>
+               </colorrole>
               </disabled>
              </palette>
             </property>
@@ -859,7 +1369,6 @@ QLineEdit{
              <font>
               <family>Noto Sans KR</family>
               <pointsize>12</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
               <strikeout>false</strikeout>
               <kerning>true</kerning>
@@ -954,9 +1463,18 @@ QLineEdit{
                  </color>
                 </brush>
                </colorrole>
-               <colorrole role="PlaceholderText">
+               <colorrole role="Highlight">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
+                  <red>31</red>
+                  <green>155</green>
+                  <blue>93</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
                   <red>255</red>
                   <green>255</green>
                   <blue>255</blue>
@@ -1019,9 +1537,18 @@ QLineEdit{
                  </color>
                 </brush>
                </colorrole>
-               <colorrole role="PlaceholderText">
+               <colorrole role="Highlight">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
+                  <red>31</red>
+                  <green>155</green>
+                  <blue>93</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
                   <red>255</red>
                   <green>255</green>
                   <blue>255</blue>
@@ -1084,9 +1611,18 @@ QLineEdit{
                  </color>
                 </brush>
                </colorrole>
-               <colorrole role="PlaceholderText">
+               <colorrole role="Highlight">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
+                  <red>31</red>
+                  <green>155</green>
+                  <blue>93</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
                   <red>255</red>
                   <green>255</green>
                   <blue>255</blue>
@@ -1100,7 +1636,6 @@ QLineEdit{
              <font>
               <family>Noto Sans KR</family>
               <pointsize>12</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -1193,9 +1728,18 @@ QLineEdit{
                  </color>
                 </brush>
                </colorrole>
-               <colorrole role="PlaceholderText">
+               <colorrole role="Highlight">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
+                  <red>31</red>
+                  <green>155</green>
+                  <blue>93</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
                   <red>255</red>
                   <green>255</green>
                   <blue>255</blue>
@@ -1258,9 +1802,18 @@ QLineEdit{
                  </color>
                 </brush>
                </colorrole>
-               <colorrole role="PlaceholderText">
+               <colorrole role="Highlight">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
+                  <red>31</red>
+                  <green>155</green>
+                  <blue>93</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
                   <red>255</red>
                   <green>255</green>
                   <blue>255</blue>
@@ -1323,9 +1876,18 @@ QLineEdit{
                  </color>
                 </brush>
                </colorrole>
-               <colorrole role="PlaceholderText">
+               <colorrole role="Highlight">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
+                  <red>31</red>
+                  <green>155</green>
+                  <blue>93</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
                   <red>255</red>
                   <green>255</green>
                   <blue>255</blue>
@@ -1339,7 +1901,6 @@ QLineEdit{
              <font>
               <family>Noto Sans KR</family>
               <pointsize>12</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -1432,9 +1993,18 @@ QLineEdit{
                  </color>
                 </brush>
                </colorrole>
-               <colorrole role="PlaceholderText">
+               <colorrole role="Highlight">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
+                  <red>31</red>
+                  <green>155</green>
+                  <blue>93</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
                   <red>255</red>
                   <green>255</green>
                   <blue>255</blue>
@@ -1497,9 +2067,18 @@ QLineEdit{
                  </color>
                 </brush>
                </colorrole>
-               <colorrole role="PlaceholderText">
+               <colorrole role="Highlight">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
+                  <red>31</red>
+                  <green>155</green>
+                  <blue>93</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
                   <red>255</red>
                   <green>255</green>
                   <blue>255</blue>
@@ -1562,9 +2141,18 @@ QLineEdit{
                  </color>
                 </brush>
                </colorrole>
-               <colorrole role="PlaceholderText">
+               <colorrole role="Highlight">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
+                  <red>31</red>
+                  <green>155</green>
+                  <blue>93</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
                   <red>255</red>
                   <green>255</green>
                   <blue>255</blue>
@@ -1578,7 +2166,6 @@ QLineEdit{
              <font>
               <family>Noto Sans KR</family>
               <pointsize>12</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -1671,9 +2258,18 @@ QLineEdit{
                  </color>
                 </brush>
                </colorrole>
-               <colorrole role="PlaceholderText">
+               <colorrole role="Highlight">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
+                  <red>31</red>
+                  <green>155</green>
+                  <blue>93</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
                   <red>255</red>
                   <green>255</green>
                   <blue>255</blue>
@@ -1736,9 +2332,18 @@ QLineEdit{
                  </color>
                 </brush>
                </colorrole>
-               <colorrole role="PlaceholderText">
+               <colorrole role="Highlight">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
+                  <red>31</red>
+                  <green>155</green>
+                  <blue>93</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
                   <red>255</red>
                   <green>255</green>
                   <blue>255</blue>
@@ -1801,9 +2406,18 @@ QLineEdit{
                  </color>
                 </brush>
                </colorrole>
-               <colorrole role="PlaceholderText">
+               <colorrole role="Highlight">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
+                  <red>31</red>
+                  <green>155</green>
+                  <blue>93</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
                   <red>255</red>
                   <green>255</green>
                   <blue>255</blue>
@@ -1817,7 +2431,6 @@ QLineEdit{
              <font>
               <family>Noto Sans KR</family>
               <pointsize>12</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>

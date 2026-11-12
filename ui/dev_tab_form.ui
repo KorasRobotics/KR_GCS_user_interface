@@ -33,6 +33,71 @@
 	color:#FFFFFF;
 }
 
+#spinBox_elec_angle{
+	color:#000000;
+	background-color:#FFFFFF;
+	border:1px solid #888888;
+	border-radius:5px;
+	padding:2px;
+	min-width:80px;
+}
+
+#groupBox_fw_update{
+	color:#000000;
+	border:1px solid #888888;
+	border-radius:5px;
+	margin-top:8px;
+	padding-top:6px;
+}
+
+#groupBox_fw_update::title{
+	subcontrol-origin: margin;
+	subcontrol-position: top left;
+	padding:0 4px;
+	color:#000000;
+}
+
+#pushButton_fw_browse, #pushButton_fw_start, #pushButton_fw_cancel{
+	background-color:#555555;
+	color:#FFFFFF;
+	padding:4px 10px;
+	border-radius:4px;
+}
+
+#pushButton_fw_start:disabled, #pushButton_fw_cancel:disabled{
+	background-color:#BBBBBB;
+	color:#FFFFFF;
+}
+
+#lineEdit_fw_path{
+	color:#000000;
+	background-color:#FFFFFF;
+	border:1px solid #888888;
+	border-radius:4px;
+	padding:2px 4px;
+}
+
+#textEdit_fw_log{
+	color:#000000;
+	background-color:#FAFAFA;
+	border:1px solid #888888;
+	border-radius:4px;
+	font-family:Consolas, monospace;
+	font-size:11px;
+}
+
+#progressBar_fw{
+	border:1px solid #888888;
+	border-radius:4px;
+	text-align:center;
+	background-color:#FFFFFF;
+}
+
+#progressBar_fw::chunk{
+	background-color:#4A90E2;
+	border-radius:3px;
+}
+
 #pushButton_set_p_gain{
 	background-color:#555555;
 	color:#FFFFFF;
@@ -50,8 +115,18 @@
 </string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
-   <item row="0" column="0">
-    <layout class="QVBoxLayout" name="verticalLayout_5">
+   <item row="0" column="0" colspan="2">
+    <widget class="QTabWidget" name="tabWidget_dev">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab_dev_general">
+      <attribute name="title">
+       <string>General</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_tab_general">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
@@ -3000,6 +3075,31 @@ arising from the use of the features in this tab.</string>
             </widget>
            </item>
            <item>
+            <widget class="QSpinBox" name="spinBox_elec_angle">
+             <property name="font">
+              <font>
+               <family>Noto Sans KR</family>
+               <pointsize>14</pointsize>
+              </font>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="minimum">
+              <number>-180</number>
+             </property>
+             <property name="maximum">
+              <number>180</number>
+             </property>
+             <property name="value">
+              <number>0</number>
+             </property>
+             <property name="suffix">
+              <string> °</string>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="QPushButton" name="pushButton_set_elec_angle">
              <property name="palette">
               <palette>
@@ -3223,32 +3323,185 @@ arising from the use of the features in this tab.</string>
       </layout>
      </item>
     </layout>
-   </item>
-   <item row="0" column="1">
-    <spacer name="horizontalSpacer_4">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>296</width>
-       <height>18</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="1" column="0">
-    <spacer name="verticalSpacer_7">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>219</width>
-       <height>378</height>
-      </size>
-     </property>
-    </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_dev_firmware">
+      <attribute name="title">
+       <string>Firmware Update</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_tab_firmware">
+       <item>
+        <widget class="QGroupBox" name="groupBox_fw_update">
+         <property name="font">
+          <font>
+           <family>Noto Sans KR</family>
+           <pointsize>13</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="title">
+          <string>Firmware Update (Bootloader)</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_fw">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_fw_file">
+            <item>
+             <widget class="QLabel" name="label_fw_path">
+              <property name="font">
+               <font>
+                <family>Noto Sans KR</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>.bin file</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_fw_path">
+              <property name="font">
+               <font>
+                <family>Noto Sans KR</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="placeholderText">
+               <string>Select application .bin (linked at 0x08008000)</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_fw_browse">
+              <property name="font">
+               <font>
+                <family>Noto Sans KR</family>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Browse...</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_fw_opts">
+            <item>
+             <widget class="QCheckBox" name="checkBox_fw_auto_reset">
+              <property name="font">
+               <font>
+                <family>Noto Sans KR</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Auto-enter bootloader (send SYSTEM_RESET via Modbus)</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_fw_jump">
+              <property name="font">
+               <font>
+                <family>Noto Sans KR</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Boot into app after update</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_fw">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_fw_btns">
+            <item>
+             <widget class="QPushButton" name="pushButton_fw_start">
+              <property name="font">
+               <font>
+                <family>Noto Sans KR</family>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Start Firmware Update</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_fw_cancel">
+              <property name="font">
+               <font>
+                <family>Noto Sans KR</family>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Cancel</string>
+              </property>
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QProgressBar" name="progressBar_fw">
+            <property name="value">
+             <number>0</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTextEdit" name="textEdit_fw_log">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>140</height>
+             </size>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
    </item>
   </layout>
  </widget>
